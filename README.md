@@ -56,6 +56,30 @@ hystrix:
   <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 </dependency>
 
+zuul:
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+</dependency>
+
+oauth2:
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-oauth2</artifactId>
+</dependency>
+
+sleuth:
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+
+zipkin:
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-zipkin</artifactId>
+</dependency>
+
 ---- spring-cloud ends ----
 
 ++++ non-spring starts ++++
