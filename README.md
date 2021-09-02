@@ -1,22 +1,28 @@
-# microservice
+# microservice: https://github.com/misbaharchitect/microservice
 spring-boot-version=2.3.12 (released on 10-Jun-2021)
 https://spring.io/blog/2021/06/10/spring-boot-2-3-12-release-available-now
 
 For making a new Microservice, download the skeleton project and add/remove dependencies based on your requirements.
 
-web:
+web: RESTful
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 
-jpa:
+jpa: Data Access(Relational DB)
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 
-h2:
+data-rest:
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-rest</artifactId>
+</dependency>
+
+h2: In-Memory DB
 <dependency>
 	<groupId>com.h2database</groupId>
 	<artifactId>h2</artifactId>
@@ -48,6 +54,18 @@ eureka-client:
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+eureka-server:
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+</dependency>
+
+feign:
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
 </dependency>
 
 hystrix:
@@ -83,14 +101,14 @@ zipkin:
 ---- spring-cloud ends ----
 
 ++++ non-spring starts ++++
-swagger:
+swagger: API Documentation
 <dependency>
 	<groupId>io.springfox</groupId>
 	<artifactId>springfox-boot-starter</artifactId>
 	<version>3.0.0</version>
 </dependency>
 
-cucumber:
+cucumber: BDD
 <dependency>
 	<groupId>io.cucumber</groupId>
 	<artifactId>cucumber-java</artifactId>

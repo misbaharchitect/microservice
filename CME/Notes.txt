@@ -1,0 +1,259 @@
+misbah.architect@gmail.com
+
+
+{
+    "_links": {
+        "self": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator",
+            "templated": false
+        },
+        "archaius": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/archaius",
+            "templated": false
+        },
+        "beans": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/beans",
+            "templated": false
+        },
+        "caches": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/caches",
+            "templated": false
+        },
+        "caches-cache": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/caches/{cache}",
+            "templated": true
+        },
+        "health": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/health",
+            "templated": false
+        },
+        "health-path": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/health/{*path}",
+            "templated": true
+        },
+        "info": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/info",
+            "templated": false
+        },
+        "conditions": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/conditions",
+            "templated": false
+        },
+        "configprops": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/configprops",
+            "templated": false
+        },
+        "bus-env": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/bus-env",
+            "templated": false
+        },
+        "bus-env-destination": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/bus-env/{destination}",
+            "templated": true
+        },
+        "env": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/env",
+            "templated": false
+        },
+        "env-toMatch": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/env/{toMatch}",
+            "templated": true
+        },
+        "integrationgraph": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/integrationgraph",
+            "templated": false
+        },
+        "loggers": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/loggers",
+            "templated": false
+        },
+        "loggers-name": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/loggers/{name}",
+            "templated": true
+        },
+        "heapdump": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/heapdump",
+            "templated": false
+        },
+        "threaddump": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/threaddump",
+            "templated": false
+        },
+        "metrics-requiredMetricName": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/metrics/{requiredMetricName}",
+            "templated": true
+        },
+        "metrics": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/metrics",
+            "templated": false
+        },
+        "scheduledtasks": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/scheduledtasks",
+            "templated": false
+        },
+        "mappings": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/mappings",
+            "templated": false
+        },
+        "refresh": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/refresh",
+            "templated": false
+        },
+        "bus-refresh": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/bus-refresh",
+            "templated": false
+        },
+        "bus-refresh-destination": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/bus-refresh/{destination}",
+            "templated": true
+        },
+        "features": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/features",
+            "templated": false
+        },
+        "service-registry": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/service-registry",
+            "templated": false
+        },
+        "bindings-name": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/bindings/{name}",
+            "templated": true
+        },
+        "bindings": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/bindings",
+            "templated": false
+        },
+        "channels": {
+            "href": "http://ec2-34-229-49-97.compute-1.amazonaws.com:8085/actuator/channels",
+            "templated": false
+        }
+    }
+}
+
+
+
+
+{"paymentPassword":"This is a password","your-property":"cccc","common.property":"This is common-3333","my-property":"cccc"}
+
+{"paymentPassword":"This is a password","your-property":"01-Sep-2021","common.property":"This is common-3333","my-property":"02-Sep-2021"}
+
+
+
+--------------------------
+change value in config-client.properties in config-server/src/main/resources/config/config-client.properties
+
+restart config-server
+
+curl -X POST localhost:8085/actuator/refresh
+
+http://localhost:8085/properties
+
+
+-----------------------------
+Config-client:
+config client, actuator, web
+
+application.properties:
+server.port=8085
+spring.application.name=config-client
+management.endpoints.web.exposure.include=*
+spring.config.import=configserver:http://localhost:9999
+greeting=default greeting
+
+@RefreshScope
+
+Java for testing:
+@RestController
+
+@Value("${greeting}")
+	private String greeting;
+
+@GetMapping("/properties")
+public String greet() {
+	return greeting;
+}
+
+
+-------------------------------
+Config-server:
+config server, actuator
+
+@EnableConfigServer
+
+server.port=9999
+spring.profiles.active=native
+management.endpoints.web.exposure.include=*
+
+New directory in src->main->resources
+New file: config-client.properties
+greeting=Hi, I am a config-client property
+
+localhost:9999/config-client/default
+
+
+==================================================
+userms-client:
+<dependency>
+			
+	<groupId>org.springframework.cloud</groupId>
+			
+	<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+				<version>2.2.8.RELEASE</version>
+		
+</dependency>
+
+@EnableHystrix
+
+@HystrixCommand(fallbackMethod = "getUsersFromFallback")
+public Object getUsersFromServer() {}
+
+private Object getUsersFromFallback() {
+	return Arrays.asList("1", "2");
+}
+
+
+---------------------------------
+userms:
+spring.application.name=userms
+
+userms-client:
+spring.application.name=userms-client
+
+return restTemplate.getForObject("http://userms/users", Object.class);
+
+
+@Bean
+@LoadBalanced
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+---------------------------------
+<spring-cloud.version>2020.0.3</spring-cloud.version>
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-dependencies</artifactId>
+			<version>${spring-cloud.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+
+
+-----------------------------
+@EnableEurekaServer
+
+application.properties
+server.port=8761
+spring.application.name=eureka-server
+
+eureka.client.registerWithEureka=false
+eureka.client.fetchRegistry=false
