@@ -1,0 +1,18 @@
+# http://localhost:8080/actuator/gateway/routes
+server:
+  port: 8080
+
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      discovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
