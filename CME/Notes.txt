@@ -1,5 +1,37 @@
 misbah.architect@gmail.com
 
+Spring Cloud Stream:
+uppercasems: Cloud Stream, Spring for Apache Kafka
+lowercasems: Cloud Stream, Spring for Apache Kafka
+
+spring.cloud.stream.bindings.toLowercase-in-0.destination=abcd
+spring.cloud.stream.bindings.toLowercase-out-0.destination=mytopic123
+
+@Bean
+public Function<String, String> toUppercase() {
+	return s -> { // input -> mytopic
+		System.out.println("uppercase receives: " + s);
+		return s.toUpperCase(); // output -> abcd(topic)
+	};
+}
+
+
+https://cloud.spring.io/spring-cloud-stream-binder-kafka/spring-cloud-stream-binder-kafka.html
+-------------------
+
+https://github.com/misbaharchitect/microservice/blob/main/CME/apigateway/src/main/resources/application.yml
+
+APIGateway:
+gateway, actuator, eureka client
+
+
+
+Domain Driven Design:
+https://www.amazon.in/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215
+
+
+
+
 
 {
     "_links": {
