@@ -1,8 +1,16 @@
-# http://localhost:8080/actuator/gateway/routes
 server:
   port: 8080
 
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
 spring:
+  main:
+    web-application-type: reactive
   application:
     name: apigateway
   cloud:
@@ -10,6 +18,20 @@ spring:
       discovery.locator:
         enabled: true
         lowerCaseServiceId: true
+      routes:
+        - id: usermsclient
+          uri: lb://USERMS-CLIENT
+          predicates:
+            - Path=/dummy-client/**
+          filters:
+            - RewritePath=/dummy-client/(?<path>.*), /$\{path}
+
+        - id: usermsmodule
+          uri: lb://USERMS
+          predicates:
+            - Path=/dummy/**
+          filters:
+            - RewritePath=/dummy/(?<path>.*), /$\{path}
 
 management:
   endpoints:
