@@ -1,0 +1,43 @@
+KeCloak Step-by-Step:
+https://www.keycloak.org/downloads.html
+cd bin
+standalone.bat -Djboss.socket.binding.port-offset=100
+standalone.bat -Djboss.http.port=8180
+./standalone.sh -Djboss.socket.binding.port-offset=100
+
+http://localhost:8180
+http://localhost:8180/auth/
+user=admin_initial
+pwd=123
+
+A realm is a holder of users and applications belonging to a single identity and access management. You can create multiple realms to handle multiple identities and access management. These custom reals are managed by the master real which is the admin realm for Keycloak.
+The applications in one realm cannot access users of another realm. Here we refer to the applications as the clients who want to access some user details.
+
+Create Realm:
+Master -> Add Realm -> MyRealm -> create
+Create Client(for Spring Boot App): "Clients" page
+MyClientApp:
+valid Redirect URI:	
+http://localhost:9001/*
+
+Creating a Role and a User:
+Keycloak uses Role-Based Access; therefore, each user must have a role.
+"Roles" page -> "user_role"
+"Users" page -> user1 -> save -> "credentials" tab -> "123" -> "Role Mappings" tab -> add the role "user_role"
+
+Generate Token:
+Keycloak provides a REST API for generating and refreshing access tokens. We can easily use this API to create our own login page.
+First, we need to acquire an access token from Keycloak by sending a POST request to this URL:
+curl --location --request POST 'http://localhost:8180/auth/realms/MyRealm/protocol/openid-connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client_id=MyClientApp' \
+--data-urlencode 'username=user1' \
+--data-urlencode 'password=123' \
+--data-urlencode 'grant_type=password'
+
+Once the access token has expired, we can refresh it by sending a POST request to the same URL as above, but containing the refresh token instead of username and password:
+{
+    'client_id': 'your_client_id',
+    'refresh_token': refresh_token_from_previous_request,
+    'grant_type': 'refresh_token'
+}
