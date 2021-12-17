@@ -41,3 +41,16 @@ Once the access token has expired, we can refresh it by sending a POST request t
     'refresh_token': refresh_token_from_previous_request,
     'grant_type': 'refresh_token'
 }
+
+curl --location --request POST 'http://localhost:8180/auth/realms/MyRealm/protocol/openid-connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client_id=MyClientApp' \
+--data-urlencode 'refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkOWI5MDFiNS0yZTkzLTQzYWUtODQ1ZC1hNzcxOTk3YWM4MDEifQ.eyJleHAiOjE2MzgzNDk3ODYsImlhdCI6MTYzODM0Nzk4NiwianRpIjoiNzk2MDMzYTktNmE3Yi00NGNmLThhNGEtMjBmZmYwZWEwMWQ0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL015UmVhbG0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvTXlSZWFsbSIsInN1YiI6IjI4YTZlYjJiLWYwM2QtNGYyZi1hZTY1LTc2MmY5YTgzYjA2YyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJNeUNsaWVudEFwcCIsInNlc3Npb25fc3RhdGUiOiJlZmZjYjFlNC0zNTJlLTRjNmMtODQ4Zi1jYWM5MDNiMDBiNzQiLCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJlZmZjYjFlNC0zNTJlLTRjNmMtODQ4Zi1jYWM5MDNiMDBiNzQifQ.FwCHvrviETABSgaQP1BYLrDw-1xn-aCdorS0BcaOfM4' \
+--data-urlencode 'grant_type=refresh_token'
+
+
+
+
+
+
+
