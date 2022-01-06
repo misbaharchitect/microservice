@@ -12,6 +12,7 @@ pwd=123
 
 A realm is a holder of users and applications belonging to a single identity and access management. You can create multiple realms to handle multiple identities and access management. These custom reals are managed by the master real which is the admin realm for Keycloak.
 The applications in one realm cannot access users of another realm. Here we refer to the applications as the clients who want to access some user details.
+Change Lifespan of Access token in : MyRealm->Tokens->Access Token Lifespan
 
 Create Realm:
 Master -> Add Realm -> MyRealm -> create
@@ -45,7 +46,7 @@ Once the access token has expired, we can refresh it by sending a POST request t
 curl --location --request POST 'http://localhost:8180/auth/realms/MyRealm/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'client_id=MyClientApp' \
---data-urlencode 'refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkOWI5MDFiNS0yZTkzLTQzYWUtODQ1ZC1hNzcxOTk3YWM4MDEifQ.eyJleHAiOjE2MzgzNDk3ODYsImlhdCI6MTYzODM0Nzk4NiwianRpIjoiNzk2MDMzYTktNmE3Yi00NGNmLThhNGEtMjBmZmYwZWEwMWQ0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL015UmVhbG0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvTXlSZWFsbSIsInN1YiI6IjI4YTZlYjJiLWYwM2QtNGYyZi1hZTY1LTc2MmY5YTgzYjA2YyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJNeUNsaWVudEFwcCIsInNlc3Npb25fc3RhdGUiOiJlZmZjYjFlNC0zNTJlLTRjNmMtODQ4Zi1jYWM5MDNiMDBiNzQiLCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiJlZmZjYjFlNC0zNTJlLTRjNmMtODQ4Zi1jYWM5MDNiMDBiNzQifQ.FwCHvrviETABSgaQP1BYLrDw-1xn-aCdorS0BcaOfM4' \
+--data-urlencode 'refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkOWI5MDFiNS0yZTkzLTQzYWUtODQ1ZC1hNzcxOTk3YWM4MDEifQ.eyJleHAiOjE2NDA5MjEzNDMsImlhdCI6MTY0MDkxOTU0MywianRpIjoiOTA3ZGU2MGQtODk3YS00MTVkLWE1NGYtZjYzMjY1NThmYjY0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL015UmVhbG0iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvTXlSZWFsbSIsInN1YiI6IjI4YTZlYjJiLWYwM2QtNGYyZi1hZTY1LTc2MmY5YTgzYjA2YyIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJNeUNsaWVudEFwcCIsInNlc3Npb25fc3RhdGUiOiIyZmU3MTlmMy02Y2UwLTQ1MDQtYWRlMy0wODAxNmRkMmQyMWQiLCJzY29wZSI6ImVtYWlsIHByb2ZpbGUiLCJzaWQiOiIyZmU3MTlmMy02Y2UwLTQ1MDQtYWRlMy0wODAxNmRkMmQyMWQifQ.aSpPLueNNVQD9qMMrsmWk2to9X5DZ-p-HctMUpGUoR4' \
 --data-urlencode 'grant_type=refresh_token'
 
 

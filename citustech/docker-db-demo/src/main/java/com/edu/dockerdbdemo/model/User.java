@@ -3,7 +3,7 @@ package com.edu.dockerdbdemo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_data")
+@Table(name = "users_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
