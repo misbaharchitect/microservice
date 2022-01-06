@@ -9,10 +9,15 @@ services:
       - POSTGRES_DB=userdb
     volumes:
       - ./db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
     networks:
       - web-db-compose
   web-app:
     image: web-app-db
+    environment:
+      # - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/userdb
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ec2-13-233-92-253.ap-south-1.compute.amazonaws.com:5432/userdb
     build:
       context: .
       dockerfile: wait.Dockerfile
