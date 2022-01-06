@@ -1,0 +1,21 @@
+docker exec -it postgre-container bash
+# postgres is username and it will prompt for password
+psql -U postgres -W userdb
+# show tables
+\dt
+
+CREATE TABLE users_table (
+  id   SERIAL PRIMARY KEY,
+  name VARCHAR(80)
+);
+# show tables
+\dt
+
+insert into users_table (name) values ('Alice');
+select * from users_table;
+
+
+
+curl localhost:8080/users -v
+
+curl -X POST localhost:8080/users -H "Content-Type: application/json" -d "{\"name\":\"abc\"}" -v
