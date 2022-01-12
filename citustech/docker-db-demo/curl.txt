@@ -1,5 +1,5 @@
 docker exec -it postgre-container bash
-# postgres is username and it will prompt for password
+# postgres is username and it will prompt for password(1234)
 psql -U postgres -W userdb
 # show tables
 \dt
