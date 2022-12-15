@@ -1,4 +1,6 @@
 docker exec -it postgre-container bash
+# mysql
+mysql -u root -p
 # postgres is username and it will prompt for password(1234)
 psql -U postgres -W userdb
 # show tables
